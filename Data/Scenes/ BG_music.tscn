@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3gfplrv5e7a0"]
+
+[ext_resource type="Script" uid="uid://w084dowbxu0o" path="res://Scripts/BG_music.gd" id="1_8g67u"]
+[ext_resource type="AudioStream" uid="uid://ymmh86yw8b2y" path="res://Sounds/mosi_final.ogg" id="1_fx53o"]
+[ext_resource type="AudioStream" uid="uid://cx4sfjhkylehg" path="res://Sounds/295_Hindi_Version_Omveer_Kehuawala_Full_Video_Song_128kbps.ogg" id="3_003co"]
+[ext_resource type="AudioStream" uid="uid://dnf1x2shars7o" path="res://Sounds/O Re Keju song kejriwal Delhi election kejriwal delhi - indian voxpop.ogg" id="4_ws1ab"]
+
+[node name="BG_music" type="Node2D"]
+script = ExtResource("1_8g67u")
+
+[node name="mosi" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("1_fx53o")
+volume_db = -12.0
+bus = &"BG_music"
+
+[node name="Rahul" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_003co")
+volume_db = -12.0
+
+[node name="Keju" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ws1ab")
+volume_db = -12.0

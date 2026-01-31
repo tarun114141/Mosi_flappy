@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs3mm03oku454"]
+
+[ext_resource type="Script" uid="uid://d30id41xwfwky" path="res://Scripts/sfx.gd" id="1_f3k7v"]
+[ext_resource type="AudioStream" uid="uid://bgn351jididyq" path="res://Sounds/cartoon-jump-6462.mp3" id="2_4mmcj"]
+
+[node name="SFX" type="Node2D"]
+script = ExtResource("1_f3k7v")
+
+[node name="jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4mmcj")
+bus = &"SFX"
+
+[node name="button" type="AudioStreamPlayer" parent="."]

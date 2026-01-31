@@ -1,0 +1,99 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxjxaetaofixt"]
+
+[ext_resource type="Script" uid="uid://d4f8pgatl70lu" path="res://Scripts/main_menu.gd" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://nwoafcivp78j" path="res://Sprites/ChatGPT Image Dec 29, 2025, 11_15_44 PM.png" id="2_48xlc"]
+[ext_resource type="Texture2D" uid="uid://dj03v60sqpgt5" path="res://Sprites/B1.png" id="3_1ehe0"]
+[ext_resource type="FontFile" uid="uid://upyw5hql48ki" path="res://Extra/Cinzel-VariableFont_wght.ttf" id="3_ce3w2"]
+
+[node name="Main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+script = ExtResource("1_28flt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.7137255)
+position = Vector2(667.5, 369.00003)
+scale = Vector2(0.96389884, 1.0389972)
+texture = ExtResource("2_48xlc")
+region_enabled = true
+region_rect = Rect2(68.49863, 43.312195, 1385.0591, 718.467)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.29500002
+anchor_top = 0.24800001
+anchor_right = 0.708
+anchor_bottom = 0.64000005
+offset_left = 99.15997
+offset_top = 64.295975
+offset_right = 611.384
+offset_bottom = 391.27997
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.28017944, 0.3338684)
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+localize_numeral_system = false
+focus_neighbor_left = NodePath("../Button")
+focus_neighbor_top = NodePath("../Button")
+focus_neighbor_right = NodePath("../Button")
+focus_neighbor_bottom = NodePath("../Button")
+focus_next = NodePath("../Button")
+focus_previous = NodePath("../Button")
+theme_override_colors/font_color = Color(0.015854057, 0.06484013, 0.049150568, 1)
+theme_override_fonts/font = ExtResource("3_ce3w2")
+theme_override_font_sizes/font_size = 100
+text = "Start Game"
+icon = ExtResource("3_1ehe0")
+flat = true
+icon_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Start")
+focus_neighbor_top = NodePath("../Start")
+focus_neighbor_right = NodePath("../Start")
+focus_neighbor_bottom = NodePath("../Start")
+focus_next = NodePath("../Start")
+focus_previous = NodePath("../Start")
+theme_override_colors/font_color = Color(0.0035191544, 0.0035191746, 0.0035191574, 1)
+theme_override_fonts/font = ExtResource("3_ce3w2")
+theme_override_font_sizes/font_size = 100
+text = "Quit
+"
+icon = ExtResource("3_1ehe0")
+flat = true
+icon_alignment = 1
+
+[node name="H_score" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ce3w2")
+theme_override_font_sizes/font_size = 100
+text = "Hight Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -109.0
+offset_top = -48.0
+offset_right = -11.0
+offset_bottom = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "tarun114141"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

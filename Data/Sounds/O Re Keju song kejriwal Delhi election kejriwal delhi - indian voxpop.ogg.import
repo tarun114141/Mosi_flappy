@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dnf1x2shars7o"
+path="res://.godot/imported/O Re Keju song kejriwal Delhi election kejriwal delhi - indian voxpop.ogg-a96902597a2f8837aba3f9f630293c16.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/O Re Keju song kejriwal Delhi election kejriwal delhi - indian voxpop.ogg"
+dest_files=["res://.godot/imported/O Re Keju song kejriwal Delhi election kejriwal delhi - indian voxpop.ogg-a96902597a2f8837aba3f9f630293c16.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

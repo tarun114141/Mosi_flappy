@@ -1,0 +1,115 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwhqjgpl188kt"]
+
+[ext_resource type="Script" uid="uid://bjlw57unluvs6" path="res://Scripts/paused.gd" id="1_wy7de"]
+
+[node name="Paused" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wy7de")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 174.0
+offset_right = 558.0
+offset_bottom = 214.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Paused"
+
+[node name="resume" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../restart")
+focus_next = NodePath("../restart")
+focus_previous = NodePath(".")
+text = "Resume"
+
+[node name="restart" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../resume")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../to_main")
+focus_next = NodePath("../to_main")
+focus_previous = NodePath("../resume")
+text = "Restart"
+
+[node name="to_main" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../restart")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../M_audio")
+focus_next = NodePath("../M_audio")
+focus_previous = NodePath("../restart")
+text = "Quit to main menu"
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="M_audio" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../to_main")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../SFX_audio")
+focus_next = NodePath("../SFX_audio")
+focus_previous = NodePath("../to_main")
+min_value = -40.0
+max_value = 0.0
+step = 5.0
+tick_count = 4
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "SFX_volume
+"
+
+[node name="SFX_audio" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../M_audio")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../BG_audio")
+focus_next = NodePath("../BG_audio")
+focus_previous = NodePath("../M_audio")
+min_value = -40.0
+max_value = 0.0
+step = 5.0
+
+[node name="Label4" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "BG_volume
+"
+
+[node name="BG_audio" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../SFX_audio")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath("../SFX_audio")
+min_value = -40.0
+max_value = 0.0
+step = 5.0
+
+[connection signal="pressed" from="VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/to_main" to="." method="_on_to_main_pressed"]
+[connection signal="value_changed" from="VBoxContainer/M_audio" to="." method="_on_m_audio_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/SFX_audio" to="." method="_on_sfx_audio_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/BG_audio" to="." method="_on_bg_audio_value_changed"]

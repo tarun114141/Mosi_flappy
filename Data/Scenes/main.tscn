@@ -1,0 +1,98 @@
+[gd_scene load_steps=12 format=3 uid="uid://dikjwnnwg0sjl"]
+
+[ext_resource type="Texture2D" uid="uid://c23xr1xwc665w" path="res://Sprites/ChatGPT Image Dec 30, 2025, 12_22_56 AM.png" id="1_6bp64"]
+[ext_resource type="PackedScene" uid="uid://d2l0bhxvuo2ol" path="res://Scenes/bird.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://oype78kextqt" path="res://Scenes/spawner.tscn" id="3_8gbba"]
+[ext_resource type="Script" uid="uid://d2ft7gmswnkg5" path="res://Scripts/boundary.gd" id="3_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://bwhqjgpl188kt" path="res://Scenes/paused.tscn" id="4_jjvhh"]
+[ext_resource type="FontFile" uid="uid://tn4owmgvapv5" path="res://Extra/PixelOperator8.ttf" id="5_344ge"]
+[ext_resource type="PackedScene" uid="uid://b3gfplrv5e7a0" path="res://Scenes/ BG_music.tscn" id="6_21xkr"]
+[ext_resource type="PackedScene" uid="uid://crqb8i05qqqp0" path="res://Scenes/pipe_pair.tscn" id="7_ynf5e"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bo1nx"]
+normal = Vector2(-0.0154124275, -0.9998812)
+distance = -648.923
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8gbba"]
+normal = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8gbba"]
+
+[node name="Main" type="Node2D"]
+position = Vector2(0, 4)
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(978, 199.00009)
+scale = Vector2(1.7929688, 2.2421877)
+texture = ExtResource("1_6bp64")
+
+[node name="Boundary" type="Area2D" parent="."]
+visible = false
+position = Vector2(135, -37)
+script = ExtResource("3_jjvhh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundary"]
+position = Vector2(-209, 84)
+shape = SubResource("WorldBoundaryShape2D_bo1nx")
+
+[node name="Polygon2D" type="Polygon2D" parent="Boundary/CollisionShape2D"]
+color = Color(1, 0.34901962, 1, 1)
+polygon = PackedVector2Array(-50, 641, 1291, 648, 1289, 678, -55, 667)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundary"]
+position = Vector2(-260, -137)
+shape = SubResource("WorldBoundaryShape2D_8gbba")
+
+[node name="Polygon2D2" type="Polygon2D" parent="Boundary/CollisionShape2D2"]
+position = Vector2(-60, -661)
+polygon = PackedVector2Array(-50, 641, 1291, 648, 1289, 678, -55, 667)
+
+[node name="BG_music" parent="." instance=ExtResource("6_21xkr")]
+
+[node name="Spawner" parent="." instance=ExtResource("3_8gbba")]
+
+[node name="Pipe_pair" parent="." instance=ExtResource("7_ynf5e")]
+position = Vector2(-244, -194)
+
+[node name="Bird" parent="." instance=ExtResource("1_jjgbg")]
+position = Vector2(37, 283)
+
+[node name="Camera2D" type="Camera2D" parent="Bird"]
+position = Vector2(647, -15)
+zoom = Vector2(0.65, 0.65)
+
+[node name="Control" type="Control" parent="Bird/Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -499.0
+offset_top = -291.0
+offset_right = -460.0
+offset_bottom = -253.0
+
+[node name="score" type="Label" parent="Bird/Camera2D/Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -10.4397955
+anchor_top = -4.0126314
+anchor_right = -9.667692
+anchor_bottom = -3.6462104
+offset_left = 57.152008
+offset_top = 21.479996
+offset_right = 132.04001
+offset_bottom = 41.556
+scale = Vector2(1.3437703, 1.7929513)
+theme_override_fonts/font = ExtResource("5_344ge")
+theme_override_font_sizes/font_size = 132
+text = "SCORE: 0"
+label_settings = SubResource("LabelSettings_8gbba")
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Bird"]
+
+[node name="Paused" parent="Bird/CanvasLayer" instance=ExtResource("4_jjvhh")]
+offset_top = -7.0
+offset_bottom = -7.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_shape_entered" from="Boundary" to="Boundary" method="_on_body_shape_entered"]

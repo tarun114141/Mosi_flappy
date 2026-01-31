@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://cafwmcmhwcdgt"]
+
+[ext_resource type="Script" uid="uid://y0ql5pwh6c7a" path="res://Scripts/pipes.gd" id="1_uhra5"]
+[ext_resource type="Texture2D" uid="uid://dwnmgu40qgp7n" path="res://Sprites/ChatGPT Image Dec 28, 2025, 11_25_42 PM.png" id="2_7ktcp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ktcp"]
+size = Vector2(151, 103)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ws3sl"]
+size = Vector2(107, 993)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7ktcp"]
+
+[node name="Pipes" type="Area2D"]
+script = ExtResource("1_uhra5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1006.8348, -196.97533)
+rotation = 3.1406696
+scale = Vector2(0.7892161, 1.0845003)
+texture = ExtResource("2_7ktcp")
+region_enabled = true
+region_rect = Rect2(174.90149, 230.98578, 299.45947, 1029.0408)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1013, 282)
+shape = SubResource("RectangleShape2D_7ktcp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(1010.5, -223.5)
+shape = SubResource("RectangleShape2D_ws3sl")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 929.0
+offset_top = 166.00002
+offset_right = 1073.1099
+offset_bottom = 220.5956
+rotation = -1.5680692
+scale = Vector2(2.978705, 2.9998186)
+text = "Democracy"
+label_settings = SubResource("LabelSettings_7ktcp")
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

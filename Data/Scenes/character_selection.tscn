@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqghqr5kbcgk6"]
+
+[ext_resource type="Script" uid="uid://s5evadmyfwpo" path="res://Scripts/character_selection.gd" id="1_mng1v"]
+[ext_resource type="Texture2D" uid="uid://dqpu1p1ocwwl2" path="res://Sprites/ChatGPT Image Dec 30, 2025, 12_12_13 AM.png" id="2_fm6ub"]
+
+[node name="Character selection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 7.0
+offset_right = 3.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mng1v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(682.5, 369.00006)
+scale = Vector2(0.90169275, 0.73046887)
+texture = ExtResource("2_fm6ub")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -50.5
+offset_right = 144.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="mosi" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../Keju")
+focus_next = NodePath("../Keju")
+focus_previous = NodePath(".")
+text = "Mosi
+"
+
+[node name="Keju" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../mosi")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath("../rahul")
+focus_next = NodePath("../rahul")
+focus_previous = NodePath("../mosi")
+text = "Keju
+"
+
+[node name="rahul" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_left = NodePath(".")
+focus_neighbor_top = NodePath("../Keju")
+focus_neighbor_right = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath("../Keju")
+text = "Raga"
+
+[connection signal="pressed" from="VBoxContainer/mosi" to="." method="_on_mosi_pressed"]
+[connection signal="pressed" from="VBoxContainer/Keju" to="." method="_on_meloni_pressed"]
+[connection signal="pressed" from="VBoxContainer/rahul" to="." method="_on_button_pressed"]

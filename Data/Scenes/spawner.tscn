@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://oype78kextqt"]
+
+[ext_resource type="Script" uid="uid://f5mj73c8lo14" path="res://Scripts/spawner.gd" id="1_yp5lu"]
+[ext_resource type="PackedScene" uid="uid://crqb8i05qqqp0" path="res://Scenes/pipe_pair.tscn" id="2_ttk4a"]
+
+[sub_resource type="GDScript" id="GDScript_mdv8j"]
+script/source = "extends Timer
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Spawner" type="Node2D"]
+script = ExtResource("1_yp5lu")
+pipe_scene = ExtResource("2_ttk4a")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.035
+autostart = true
+script = SubResource("GDScript_mdv8j")
