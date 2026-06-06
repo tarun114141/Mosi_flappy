@@ -26,4 +26,3 @@ extends Node2D
 #
 	#if bg2.position.x <= -width:
 		#bg2.position.x = bg1.position.x + width
-

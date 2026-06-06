@@ -25,24 +25,24 @@ const DIFFICULTY = {
 }
 
 func _ready():
-    # Load high score on game start
+	# Load high score on game start
 	load_high_score()
 
 func apply_difficulty():
-    # Update game parameters based on current level
+	# Update game parameters based on current level
 	var data = DIFFICULTY[difficulty_level]
 	pipe_speed = data.speed
 	min_spawn_time = data.min_time
 	max_spawn_time = data.max_time
 
 func reset():
-    # Reset game state to initial values
+	# Reset game state to initial values
 	score = 0
 	difficulty_level = 1
 	apply_difficulty()
 
 func update_difficulty():
-    # Increase difficulty based on score milestones
+	# Increase difficulty based on score milestones
 	if score == 10:
 		difficulty_level = 2
 	elif score == 20:
@@ -74,4 +74,3 @@ func check_high_score():
 	if score > H_score:
 		H_score = score
 		save_high_score()
-

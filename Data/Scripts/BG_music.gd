@@ -7,7 +7,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-    # Play specific background music based on the selected character
+	# Play specific background music based on the selected character
 	if Global.Character==0:
 		BG_mosi.play()
 	if Global.Character==1:

@@ -90,9 +90,19 @@ metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Bird"]
 
+[node name="PauseButton" type="Button" parent="Bird/CanvasLayer"]
+offset_left = 1160.0
+offset_top = 20.0
+offset_right = 1260.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("5_344ge")
+theme_override_font_sizes/font_size = 36
+text = "||"
+
 [node name="Paused" parent="Bird/CanvasLayer" instance=ExtResource("4_jjvhh")]
 offset_top = -7.0
 offset_bottom = -7.0
 metadata/_edit_use_anchors_ = true
 
 [connection signal="body_shape_entered" from="Boundary" to="Boundary" method="_on_body_shape_entered"]
+[connection signal="pressed" from="Bird/CanvasLayer/PauseButton" to="Bird" method="_on_pause_button_pressed"]

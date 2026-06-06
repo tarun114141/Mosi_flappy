@@ -5,4 +5,3 @@ extends Node2D
 # Global helper function to play jump sound
 func sfx_jump() -> void:
 	jump.play()
-

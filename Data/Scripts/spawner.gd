@@ -7,13 +7,13 @@ extends Node2D
 
 func _ready():
 	randomize()
-    # Apply initial difficulty settings
+	# Apply initial difficulty settings
 	Global.apply_difficulty()
 	timer.timeout.connect(spawn_pipe)
 	start_timer()
 
 func start_timer():
-    # Set a random wait time based on current difficulty
+	# Set a random wait time based on current difficulty
 	timer.wait_time = randf_range(
 		Global.min_spawn_time,
 		Global.max_spawn_time
@@ -21,11 +21,10 @@ func start_timer():
 	timer.start()
 
 func spawn_pipe():
-    # Instantiate and position a new pipe
+	# Instantiate and position a new pipe
 	var pipe = pipe_scene.instantiate()
 	pipe.global_position.x = spawn_x
 	add_child(pipe)
 
-    # Reset timer for next spawn
+	# Reset timer for next spawn
 	start_timer()
-

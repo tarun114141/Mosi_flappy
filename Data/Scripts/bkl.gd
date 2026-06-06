@@ -8,7 +8,7 @@ func _ready():
 	video_stream_player.stream = videos[Global.Character]
 	
 	video_stream_player.play()
-    # Connect signal to handle when video ends
+	# Connect signal to handle when video ends
 	video_stream_player.finished.connect(_on_video_finished)
 
 # Reset game and return to character selection when video ends

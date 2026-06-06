@@ -9,7 +9,7 @@ const JUMP_VELOCITY = -400.0
 
 
 func _ready() -> void:
-    # Set the bird's appearance based on selected character
+	# Set the bird's appearance based on selected character
 	animation.sprite_frames= characters[Global.Character]
 	animation.play("idle")
 
@@ -43,10 +43,16 @@ func _physics_process(delta: float) -> void:
 # Handle pause input	
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
-		get_tree().paused = not get_tree().paused
-		
-		paused.visible = get_tree().paused
+		toggle_pause()
+
+func toggle_pause():
+	get_tree().paused = not get_tree().paused
+	paused.visible = get_tree().paused
+	if get_tree().paused:
 		paused.show_menu()
+
+func _on_pause_button_pressed() -> void:
+	toggle_pause()
 	
 
  # Replace with function body.
